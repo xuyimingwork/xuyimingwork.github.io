@@ -2,3 +2,6 @@ _site
 .sass-cache
 .jekyll-metadata
 Gemfile.lock
+
+# 忽略 node 依赖文件
+node_modules/
