@@ -1,14 +1,23 @@
 const fs = require('fs');
-const path = require('path')
 const moment = require('moment');
 const argv = require('yargs').argv;
 
 const DATE_FORMAT = 'YYYY-MM-DD';
 const DATE_TIME_FORMAT = 'YYYY-MM-DDTHH:mm:ss';
 const POST_DIR = '_posts/';
+const DEFAULT_FILE_NAME = 'post';
+const BANNER = `---
+title: "标题"
+date: ${moment().format(DATE_TIME_FORMAT)}
+categories:
+  - 目录1
+  - 目录2
+tags:
+  - 标签1
+  - 标签2
+---\n`;
 
 function getPostFileName() {
-  const DEFAULT_FILE_NAME = 'post';
   const prefix = `${moment().startOf('day').format(DATE_FORMAT)}-`;
   const postName = argv._.length ? argv._.join('-') : DEFAULT_FILE_NAME;
   const suffix = '.md';
@@ -16,15 +25,7 @@ function getPostFileName() {
 }
 
 function getPostFileContent() {
-  const banner = `---
-title: "标题"
-date: ${moment().format(DATE_TIME_FORMAT)}
-categories:
-  - 目录
-tags:
-  - 标签
----\n`;
-  return banner;
+  return BANNER;
 }
 
 function isExist(file) {
@@ -38,10 +39,7 @@ function isExist(file) {
 function createPostFile(name, content) {
   return isExist(name)
     .then(isExist => {
-      // 若文件已存在，抛出错误
-      if (isExist) throw new Error(`${name} is exist!`);
-      
-      // 若不存在，创建文件
+      if (isExist) throw new Error(`${name} is exist!`);      
       return create(name, content);
     })
 
