@@ -10,8 +10,7 @@ const BANNER = `---
 title: "标题"
 date: ${moment().format(DATE_TIME_FORMAT)}
 categories:
-  - 目录1
-  - 目录2
+  - 目录
 tags:
   - 标签1
   - 标签2
