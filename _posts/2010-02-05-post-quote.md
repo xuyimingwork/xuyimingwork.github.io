@@ -1,10 +1,9 @@
 ---
 title: "Post: Quote"
 categories:
-  - Blog
+  - 初始化
 tags:
-  - Post Formats
-  - quote
+  - jekyll
 ---
 
 > Only one thing is impossible for God: To find any sense in any copyright law on the planet.

@@ -1,10 +1,9 @@
 ---
 title: "Post: Notice"
 categories:
-  - Blog
+  - 初始化
 tags:
-  - Post Formats
-  - notice
+  - jekyll
 ---
 
 A notice displays information that explains nearby content. Often used to call attention to a particular detail.
