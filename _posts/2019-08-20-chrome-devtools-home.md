@@ -12,7 +12,7 @@ tags:
 
 # 开始
 
-- [查看与更改 DOM](./2019-08-20-chrome-devtools-dom.md)
+- [查看与更改 DOM]({% post_url 2019-08-20-chrome-devtools-dom %})
 
 # 参见
 
