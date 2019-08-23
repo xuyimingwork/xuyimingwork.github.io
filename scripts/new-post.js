@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs');
 const moment = require('moment');
 const argv = require('yargs').argv;
