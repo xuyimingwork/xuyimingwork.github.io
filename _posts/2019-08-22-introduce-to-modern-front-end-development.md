@@ -68,5 +68,5 @@ tags:
 # 参见
 
 - [jquery 与 angularjs 实现 hello world 对比](https://www.youtube.com/watch?time_continue=137&v=uFTFsKmkQnQ)
-- [新手向：Vue 2.0 的建议学习顺序](https://zhuanlan.zhihu.com/p/23134551)
+- [新手向：Vue 2.0 的建议学习顺序 —— 尤雨溪](https://zhuanlan.zhihu.com/p/23134551)
 
