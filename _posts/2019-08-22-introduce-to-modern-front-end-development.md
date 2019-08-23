@@ -36,7 +36,7 @@ tags:
 
 了解 node 如何执行 JavaScript 脚本，了解为何在编写 node 的 JavaScript 脚本时可以使用 `require`、`module`。
 
-> 在 node 8 中，如果在脚本首行故意留下语法错误，在用 node 执行时即可看见，node 将脚本包裹在一个立即执行函数中，而脚本内使用的 `require`、`module` 等为该立即执行函数传入的参数
+> 在 node 8 中，如果在脚本首行故意留下语法错误（如 `const a = ,`），在用 node 执行时即可看见，node 将脚本包裹在一个立即执行函数中，而脚本内使用的 `require`、`module` 等为该立即执行函数传入的参数
 
 理解 npm 脚本，`package.json` 中的 `main`、`scripts`、`dependencies` 等属性。
 
