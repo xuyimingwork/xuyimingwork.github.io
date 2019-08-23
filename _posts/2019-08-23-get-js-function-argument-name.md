@@ -7,8 +7,6 @@ tags:
   - javascript
 ---
 
-代码来源：[How to get function parameter names/values dynamically?](https://stackoverflow.com/questions/1007981/how-to-get-function-parameter-names-values-dynamically)
-
 ```js
 /**
  * 获取某方法传入参数的名称列表
@@ -31,4 +29,8 @@ function getFuncArguNames(func) {
 - 若在生产环境上有使用代码优化、进行变量名混淆。可能不适宜使用该方法动态获取形参名。
 - 代码来源的连接里还有升级版的方法，用于处理 es6 的形参存在默认值定义时的一些问题。
 
-> 补充：获取函数参数名通常是为了依据参数名动态注入参数，但在混淆的情况无法达成。angularjs 中为此提供的方案是传入数组，数组的最后一项为函数，之前项为字符串，指定要注入到最后项函数中的数据。
+> 补充：获取函数参数名通常是为了依据参数名动态注入参数，但在混淆的情况无法达成。angularjs 中为此提供的方案是传入数组，数组的最后一项为函数，之前项为字符串，指明要注入到最后项函数中的数据。
+
+# 参见
+
+[How to get function parameter names/values dynamically?](https://stackoverflow.com/questions/1007981/how-to-get-function-parameter-names-values-dynamically)
