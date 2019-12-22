@@ -10,6 +10,12 @@ tags:
   - 响应式
 ---
 
+## 前言
+
+当你更新 vue 实例的某个属性，它依赖的方法随之重新执行，你或许知道这是 vue 通过 `defineProperty` 实现的响应式系统，但具体又是如何做的？
+
+本文用 vue 源码中相同的模式、原理，以不到一百行的代码，实现了一个简单的响应式系统，希望本文对你理解 vue 有所帮助。
+
 ## 角色与关键点
 
 从小片段开始
@@ -116,7 +122,7 @@ class Dep {
   }
 
   notify() {
-    this.subs.forEach(watcher => watcher.updata())
+    this.subs.forEach(watcher => watcher.update())
   }
 }
 
@@ -138,7 +144,7 @@ class Watcher {
     Dep.target = null
   }
 
-  updata() {
+  update() {
     this.cb()
   }
 }
@@ -251,4 +257,4 @@ new MiniVue({
 
 - [Build a Reactivity System](https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system)
 
-> 场外：当我意识到 vue 响应式的实现使用了观察者模式，且变量为观察对象，计算过程为观察者后，我便很快理解了这部分代码，希望本文对你理解 vue 有所帮助。
+> 场外：当我意识到 vue 响应式的实现使用了观察者模式，且变量为观察对象，计算过程为观察者后，我便很快理解了这部分代码。
