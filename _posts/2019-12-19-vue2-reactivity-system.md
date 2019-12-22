@@ -10,8 +10,6 @@ tags:
   - 响应式
 ---
 
-> 开始前：当我意识到 vue 响应式的实现使用了观察者模式，且变量为观察对象，计算过程为观察者后，我便明白了这部分代码的逻辑。
-
 ## 角色与关键点
 
 从小片段开始
@@ -262,3 +260,6 @@ new MiniVue({
 参见：
 
 - [Build a Reactivity System](https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system)
+
+> 场外：当我意识到 vue 响应式的实现使用了观察者模式，且变量为观察对象，计算过程为观察者后，我便很快理解了这部分代码，希望本文对你理解 vue 有所帮助。
+
