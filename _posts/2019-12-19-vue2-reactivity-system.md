@@ -60,7 +60,7 @@ cb()
 
 对于将计算过程 `cb` 保存到某个地方，目前很明确，就是保存在 `Watcher` 中。
 
-> 场外：`Dep` 作为观察对象，内部需要维护一个订阅者（观察者）列表 —— `subs`，`subs` 中的每一项都是 `Watcher`，这样，当变化发生，调用 `Dep` 的 `notify` 方法，`Dep` 就可以遍历 `subs`，调用每个 `Watcher` 的 `update` 方法。这里 `update` 具体要做的事就是重新执行一遍 `cb`
+> 场外：`Dep` 作为观察对象，内部需要维护一个订阅者（观察者）列表 —— `subs`，`subs` 中的每一项都是 `Watcher`，这样，当变化发生，调用 `Dep` 的 `notify` 方法，在 `notify` 中遍历 `subs`，调用每个 `Watcher` 的 `update` 方法。而 `update` 具体要做的事就是重新执行一遍 `cb`
 
 对于如何将变量与计算过程关联，即知晓某一计算过程依赖哪些变量。我们再来看下 `cb` 这一计算过程：
 
@@ -74,7 +74,7 @@ cb()
 
 从上面的观察者模式来说，`cb` 存储在 `Watcher` 中，`price` 和 `quentity` 各自对应一个 `Dep`，是观察对象，这里的建立联系就是将 `Watcher` 添加到 `Dep` 的订阅者列表中。
 
-> 场外：这里还可以再绕一层，`Dep` 对应的变量是 `Watcher` 对应的计算过程的依赖，建立联系的过程就是给 `Watcher` 添加依赖。至于如何给 `Watcher` 添加依赖，依据观察者模式，就是将 `Watcher` 添加到 `Dep` 的订阅者（观察者）列表（`subs`）中。
+> 场外：这里还可以再绕一层，`Dep` 对应的变量是 `Watcher` 对应的计算过程的依赖，建立联系的过程就是给 `Watcher` 添加依赖。至于如何给 `Watcher` 添加依赖，依据观察者模式，仍是将 `Watcher` 添加到 `Dep` 的订阅者（观察者）列表（`subs`）中。
 
 ## 梳理总结
 
@@ -262,4 +262,3 @@ new MiniVue({
 - [Build a Reactivity System](https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system)
 
 > 场外：当我意识到 vue 响应式的实现使用了观察者模式，且变量为观察对象，计算过程为观察者后，我便很快理解了这部分代码，希望本文对你理解 vue 有所帮助。
-
