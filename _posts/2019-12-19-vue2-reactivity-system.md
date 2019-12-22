@@ -88,7 +88,7 @@ cb()
 
 ## 代码实现
 
-将变量包裹到 data 中
+将变量包裹到 `data` 对象中并移除手动首次调用 `cb`
 
 ```js
 const data = {
@@ -99,7 +99,6 @@ let total = 0
 function cb() {
   total = data.price * data.quentity
 }
-cb()
 ```
 
 定义 `Dep`
@@ -170,15 +169,6 @@ function walk(data) {
 使用
 
 ```js
-const data = {
-  price: 5,
-  quentity: 2
-}
-let total = 0
-function cb() {
-  total = data.price * data.quentity
-}
-
 walk(data)
 new Watcher(cb)
 ```
